@@ -18,6 +18,10 @@ class SettingsViewController: UIViewController {
     @IBAction func changeShouldShowPluto(_ sender: UISwitch) {
         let userDefaults = UserDefaults.standard
         userDefaults.set(sender.isOn, forKey: .shouldShowPlutoKey)
+        
+        // Notifications
+        
+        NotificationCenter.default.post(name: .shouldShowPlutoChanged, object: self)
     }
     
     private func updateViews() {
